@@ -1,0 +1,32 @@
+-- Compilar files:
+antlr4 *file.g4*
+antlr4-build
+
+-- Testar:
+antlr4-test
+*inserir regra* + ctrl+d
+
+-- Gerar arvore sintatica:
+antlr4-test -gui
+*inserir regra* + ctrl+d
+
+-- Ver tokens gerados:
+antlr4-test -tokens
+*inserir regra* + ctrl+d
+
+-- Main:
+antlr4-main *gramatica* *regra* (greetings pex)
+
+-- Visitor:
+antlr4 *gramatica*.g4 -visitor
+antlr4-visitor *Nome Visitor* *Tipo Dados*
+
+-- Main pós visitor:
+antlr4-main *gramatica* *regra* -visitor *Nome Visitor*
+
+-- Run:
+antlr4-build
+echo "etc etc" | antlr4-run
+
+-- Limpar files:
+antlr4-clean
