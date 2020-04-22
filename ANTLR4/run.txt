@@ -19,7 +19,7 @@ antlr4-main *gramatica* *regra* (greetings pex)
 
 -- Visitor:
 antlr4 *gramatica*.g4 -visitor
-antlr4-visitor *Nome Visitor* *Tipo Dados*
+antlr4-visitor *Nome Visitor* (Execute) *Tipo Dados*
 
 -- Main pós visitor:
 antlr4-main *gramatica* *regra* -visitor *Nome Visitor*
