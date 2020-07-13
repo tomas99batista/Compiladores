@@ -18,25 +18,6 @@ public class Execute extends BigIntCalcBaseVisitor<BigInteger> {
       return res;
    }
 
-   @Override public BigInteger visitExprSignal(BigIntCalcParser.ExprSignalContext ctx) {
-      BigInteger res = null;
-      BigInteger number = visit(ctx.expr());
-      if(res != null){
-         switch (expr.signal.getText()) {
-            case "+":
-               res = number;
-               break;
-            case "-":
-               res = number.negate();
-               break;
-         }
-         String identifier = ctx.Identifier().getText();
-         symbMap.put(identifier, res);
-      } 
-
-      return res;
-   }
-
    @Override public BigInteger visitExprMultDivMod(BigIntCalcParser.ExprMultDivModContext ctx) {
       BigInteger res = null;
       BigInteger e1 = visit(ctx.expr(0));
