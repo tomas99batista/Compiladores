@@ -10,6 +10,15 @@ public class Execute extends BigIntCalcBaseVisitor<BigInteger> {
    }
 
    @Override public BigInteger visitAssign(BigIntCalcParser.AssignContext ctx) {
+      BigInteger res = visit(ctx.expr());
+      if(res != null){
+         String identifier = ctx.Identifier().getText();
+         symbMap.put(identifier, res);
+      } 
+      return res;
+   }
+
+   @Override public BigInteger visitExprSignal(BigIntCalcParser.ExprSignalContext ctx) {
       BigInteger res = null;
       BigInteger number = visit(ctx.expr());
       if(res != null){
@@ -25,15 +34,6 @@ public class Execute extends BigIntCalcBaseVisitor<BigInteger> {
          symbMap.put(identifier, res);
       } 
 
-      return res;
-   }
-
-   @Override public BigInteger visitExprSignal(BigIntCalcParser.ExprSignalContext ctx) {
-      BigInteger res = visit(ctx.expr());
-      if(res != null){
-         String identifier = ctx.Identifier().getText();
-         symbMap.put(identifier, res);
-      } 
       return res;
    }
 

@@ -18,7 +18,7 @@ expr: signal=('+'|'-') expr            #ExprSignal
     | Identifier                        #ExprIdentifier
     ;
 
-Num: ('+'|'-')? [0-9]+;
+Num: [0-9]+;
 Identifier: [a-zA-Z][a-zA-Z0-9]*;
 
 WS: [ \t\r\n]+ -> skip;
